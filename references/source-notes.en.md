@@ -32,6 +32,8 @@ These bibliographic details and links were transcribed from the guide's Reading 
 
 The following operational rules were added for a reusable AI workflow and are not presented as quotations from the guide: access checks and source locations, explicit separation of author claims from AI inference, goal-dependent depth, claim–evidence tables, missing-information labels, and computing/ML checks for leakage, fair comparisons, randomness, and reproduction.
 
+Method framework diagrams are another project extension: reconstruct modules and edges from checked source material, separate training from deployment, and provide Mermaid with image export when requested and available. See the [diagram guide](method-framework.en.md). Example figures are project reconstructions, not reproductions of the paper's original artwork.
+
 The guide's informal statistical explanations were tightened. A p-value is not the probability of a false conclusion or chance causation. A confidence interval is not directly a posterior probability distribution for a parameter. Non-significance does not establish no effect. Causal appraisal examines design, identification assumptions, and implementation, avoiding categorical claims that observational work can never study causality or that randomization guarantees credibility.
 
 Consensus is an optional search aid in the guide. This skill retains original-source verification and contextual appraisal without requiring an account, paid product, or particular connector. The guide's fictional example is not real research evidence.

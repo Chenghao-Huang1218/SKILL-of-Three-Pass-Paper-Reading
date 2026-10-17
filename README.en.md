@@ -13,6 +13,7 @@ Read a paper at the depth your goal requires: establish the big picture, trace c
 - **Proportionate criticism:** missing reporting is not proof that a procedure was not performed. Label suspected problems and verified problems differently.
 - **Calibrated conclusions:** explain the paper's strongest evidence, main limitation, and what it does not establish; rewrite its conclusion at the strength supported by the evidence.
 - **Purpose-driven depth:** stop after screening when that is sufficient; complete all three passes when the user explicitly requests a full close reading.
+- **Source-grounded method diagrams:** separate inputs, modules, outputs, and training/deployment relationships; provide editable Mermaid and source locations, with SVG/PNG export when supported by local tools.
 
 The three-pass method, Five Cs, evidence tracking, and reading-note templates are shared with other reading workflows. This project does not claim to invent them, and comparative performance against other skills has not been benchmarked.
 
@@ -61,11 +62,15 @@ three-pass-paper-reading/
 ├── references/
 │   ├── reading-note.md
 │   ├── reading-note.en.md
+│   ├── method-framework.md
+│   ├── method-framework.en.md
 │   ├── source-notes.md
 │   └── source-notes.en.md
 └── examples/
     ├── wind-aware-rl-reading.md
-    └── wind-aware-rl-reading.en.md
+    ├── wind-aware-rl-reading.en.md
+    ├── wind-aware-rl-framework.md
+    └── wind-aware-rl-framework.en.md
 ```
 
 ## Usage
@@ -91,6 +96,23 @@ on whether to continue reading.
 ```
 
 Natural-language requests can also work if your assistant automatically matches skills; explicitly naming the identifier is more direct.
+
+## Generate a method framework diagram
+
+```text
+Use $three-pass-paper-reading to read the attached paper and generate
+a method framework diagram. Respond in English.
+Separate training from inference/deployment, identify inputs, core modules,
+outputs, and training objectives. Provide editable Mermaid, a short caption,
+and source locations for important modules and edges.
+Mark unknowns rather than inventing details. Also export SVG if supported.
+```
+
+During a full close reading, the skill proactively adds an overview when a multi-module method benefits from one. A diagram-only request does not require a complete Pass 3 review. Mermaid is the default; image export depends on available renderers. Graphviz is optional and is not required to install the skill.
+
+[English framework example](examples/wind-aware-rl-framework.en.md) · [中文框架图示例](examples/wind-aware-rl-framework.md) · [Diagram guide](references/method-framework.en.md)
+
+![Reconstructed horizontal-flight deployment framework; training and source locations are documented in the framework example](examples/wind-aware-rl-framework.en.svg)
 
 ## Worked example: wind-aware reinforcement learning
 
@@ -129,7 +151,7 @@ These observations summarize the supplied paper and its worked reading, not a co
 | Pass | Purpose | Deliverable |
 | --- | --- | --- |
 | 1: Orientation | Understand the gist and decide whether to continue | Two-sentence summary, Five Cs, relevance, and next step |
-| 2: Evidence | Follow the methods and argument | Method explanation, figure/table checks, claim–evidence mapping, revised summary |
+| 2: Evidence | Follow the methods and argument | Method explanation, figure/table checks, claim–evidence mapping, revised summary, and a method diagram when useful |
 | 3: Appraisal | Challenge the conditions behind the conclusion | Alternative explanations, strengths and limitations, three-part assessment, calibrated conclusion |
 
 A reusable [English reading-note template](references/reading-note.en.md) is included, alongside the [Chinese version](references/reading-note.md).

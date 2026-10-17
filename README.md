@@ -19,6 +19,7 @@
 - **让批判也受证据约束**：未报告不等于没做；待验证问题不能直接写成研究缺陷。
 - **形成可以准确复述的结论**：追踪“主张—方法—证据—边界”，最后改写出与证据相称的结论。
 - **按目标控制深度**：速读可以停在第一遍；用户明确要求精读时连续完成三遍。
+- **依据原文生成方法框架图**：分清输入、模块、输出及训练/部署关系，交付可编辑Mermaid与原文依据；需要图片时可按环境能力导出SVG/PNG。
 
 三遍阅读、五个 C、证据定位和结构化笔记也是其他论文阅读 Skill 使用的做法。本项目不声称首创这些方法，也尚未通过跨 Skill 对照实验验证效果优越性。
 
@@ -67,11 +68,15 @@ three-pass-paper-reading/
 ├── references/
 │   ├── reading-note.md
 │   ├── reading-note.en.md
+│   ├── method-framework.md
+│   ├── method-framework.en.md
 │   ├── source-notes.md
 │   └── source-notes.en.md
 └── examples/
     ├── wind-aware-rl-reading.md
-    └── wind-aware-rl-reading.en.md
+    ├── wind-aware-rl-reading.en.md
+    ├── wind-aware-rl-framework.md
+    └── wind-aware-rl-framework.en.md
 ```
 
 本 Skill 不绑定特定检索产品，也不附带 PDF 解析器。助手需要具备读取论文全文及查看相关图表的能力。若无法访问全文，应明确限制，不能把摘要分析称为全文精读。
@@ -96,6 +101,21 @@ three-pass-paper-reading/
 请使用 $three-pass-paper-reading 对附件论文只做第一遍阅读，
 给出两句话概述、五个 C，以及是否值得继续精读的理由。
 ```
+
+## 生成论文方法框架图
+
+```text
+请使用 $three-pass-paper-reading 阅读附件论文，生成方法框架图。
+请区分训练流程与推理/部署流程，标注输入、核心模块、输出及训练目标。
+交付可编辑Mermaid图、简短图注和关键模块/连线的原文定位表。
+未知细节请标注，不要补造；如环境支持，请另导出SVG。
+```
+
+完整精读中，方法由多个模块组成且图示有助理解时，Skill会主动附概览；单独要求画图也可以，不必强制执行整篇第三遍评审。默认输出Mermaid，图片导出取决于可用渲染器；Graphviz是可选能力，安装Skill本身不需要它。
+
+[中文框架图示例](examples/wind-aware-rl-framework.md) · [English framework example](examples/wind-aware-rl-framework.en.md) · [绘图规范](references/method-framework.md)
+
+![风感知残差控制的定高部署框架；训练流程及原文定位见框架图示例](examples/wind-aware-rl-framework.svg)
 
 ## 一个真实使用例子：风感知强化学习控制
 
@@ -132,7 +152,7 @@ https://arxiv.org/abs/2607.01528v1
 | 阶段 | 阅读目的 | 主要产出 |
 | --- | --- | --- |
 | 第一遍 | 获得全貌、决定是否深入 | 两句话概述、五个 C、相关性与下一步 |
-| 第二遍 | 理解方法、追踪论证 | 方法解释、图表核查、主张—证据表、修订概要 |
+| 第二遍 | 理解方法、追踪论证 | 方法解释、图表核查、主张—证据表、修订概要；适用时生成方法框架图 |
 | 第三遍 | 检查结论成立的条件 | 替代解释、主要优点与局限、三维评价、结论改写 |
 
 需要长期积累笔记时，使用 [中文阅读笔记模板](references/reading-note.md) 或 [English reading-note template](references/reading-note.en.md)。

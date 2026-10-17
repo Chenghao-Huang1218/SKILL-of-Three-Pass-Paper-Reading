@@ -1,0 +1,36 @@
+// Reconstructed from arXiv:2607.01528v1, pp.5–10 and pp.15–17.
+// Same deployment relationships as the accompanying Mermaid example.
+digraph method_framework {
+  graph [rankdir=LR, bgcolor=white, pad=0.35, nodesep=0.35, ranksep=0.65, label="风感知残差控制｜部署流程重建", labelloc=t, fontsize=20, fontname="Microsoft YaHei"];
+  node [shape=box, style="rounded,filled", fillcolor="#f1f5f9", color="#64748b", fontcolor="#0f172a", fontsize=12, fontname="Microsoft YaHei", margin="0.15,0.10"];
+  edge [color="#475569", fontcolor="#334155", fontsize=10, fontname="Microsoft YaHei", arrowsize=0.75];
+  reference [label="参考轨迹"];
+  state_signals [label="机载状态反馈"];
+  command_features [label="控制指令特征\n闭环来源待核查", fillcolor="#fef3c7"];
+  features [label="水平模型特征与历史\n48维；60点窗口", fillcolor="#dbeafe"];
+  estimator [label="冻结的Attention-GRU\n估计北向、东向平均风", fillcolor="#dbeafe"];
+  ema_filter [label="EMA与尖峰门控\n时间常数3秒", fillcolor="#dbeafe"];
+  pd_controller [label="名义PD控制器"];
+  residual_policy [label="PPO残差策略\n23维观测", fillcolor="#dcfce7"];
+  action_filter [label="残差缩放、平滑\n与变化率限制", fillcolor="#dcfce7"];
+  action_sum [label="名义控制量＋残差", shape=box, penwidth=2];
+  vehicle [label="四旋翼动力学\n含执行器响应"];
+  ambient_wind [label="环境风与湍流\n不是在线风真值输入"];
+  reference -> pd_controller;
+  state_signals -> pd_controller;
+  state_signals -> features;
+  command_features -> features;
+  features -> estimator;
+  estimator -> ema_filter;
+  ema_filter -> residual_policy [label="两个估计风分量"];
+  state_signals -> residual_policy;
+  reference -> residual_policy [label="计算跟踪误差"];
+  pd_controller -> residual_policy [label="归一化基线推力"];
+  pd_controller -> action_sum [label="名义推力与力矩"];
+  residual_policy -> action_filter [label="推力与三轴力矩修正"];
+  action_filter -> action_sum;
+  action_filter -> residual_policy [label="上一时刻已施加残差", constraint=false];
+  action_sum -> vehicle;
+  ambient_wind -> vehicle;
+  vehicle -> state_signals [constraint=false];
+}

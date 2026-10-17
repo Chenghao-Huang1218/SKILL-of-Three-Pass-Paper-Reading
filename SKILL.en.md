@@ -1,6 +1,6 @@
 ---
 name: three-pass-paper-reading
-description: "Read research papers with the three-pass method: screen relevance, trace arguments and figures to evidence, then critically assess validity, importance, and applicability. Use for screening, close reading, method understanding, discussion preparation, and pre-reproduction appraisal, with traceable reading notes."
+description: "Read research papers with the three-pass method: screen relevance, trace arguments and figures to evidence, then assess validity, importance, and applicability. Use for screening, close reading, method understanding, discussion preparation, and pre-reproduction appraisal, with traceable notes and source-grounded method framework diagrams."
 ---
 
 # Three-Pass Paper Reading
@@ -67,6 +67,14 @@ For quantitative figures and tables, check:
 For qualitative studies, trace themes to interview excerpts, cases, or observations rather than demanding effect sizes. For theoretical or humanities papers, inspect premises, derivation or argument steps, and counterexamples.
 
 **Output:** research logic, key methods and visuals, claim–evidence table, revised overview, unresolved questions, and identified papers worth reading next. A paper appearing in the reference list is not evidence that it has been read.
+
+## Method framework diagrams: Pass 2 onward
+
+Generate a diagram when the user requests a method framework, architecture, workflow, or visual explanation. For a complete close reading, proactively add an overview when a multi-module method benefits from it. Do not require a diagram for Pass 1, and omit it when the user explicitly requests no diagrams.
+
+Before drawing, read [references/method-framework.en.md](references/method-framework.en.md). Check the original Methods, relevant equations, and captions, then identify inputs, modules, outputs, training objectives, and applicable feedback paths. Separate training from inference/deployment, and distinguish data flow, parameter updates, feedback, and reader inference. Mark unreported details rather than inventing connections.
+
+By default, provide editable Mermaid, a short caption, a source-location table for modules and important edges, and a statement of omissions or uncertainty. Follow the guide for requested image/file exports; claim an SVG/PNG deliverable only after actually generating and checking it. A reconstructed diagram is neither an original paper figure nor an experimental validation.
 
 ## Pass 3: Read critically
 

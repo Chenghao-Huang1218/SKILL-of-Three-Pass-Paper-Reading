@@ -1,0 +1,36 @@
+// Reconstructed from arXiv:2607.01528v1, pp.5–10 and pp.15–17.
+// Same deployment relationships as the accompanying Mermaid example.
+digraph method_framework {
+  graph [rankdir=LR, bgcolor=white, pad=0.35, nodesep=0.35, ranksep=0.65, label="Wind-aware residual control | Deployment reconstruction", labelloc=t, fontsize=20, fontname="Arial"];
+  node [shape=box, style="rounded,filled", fillcolor="#f1f5f9", color="#64748b", fontcolor="#0f172a", fontsize=12, fontname="Arial", margin="0.15,0.10"];
+  edge [color="#475569", fontcolor="#334155", fontsize=10, fontname="Arial", arrowsize=0.75];
+  reference [label="Reference trajectory"];
+  state_signals [label="Onboard state feedback"];
+  command_features [label="Command features\nClosed-loop provenance unresolved", fillcolor="#fef3c7"];
+  features [label="Horizontal features and history\n48 channels; 60-sample window", fillcolor="#dbeafe"];
+  estimator [label="Frozen attention-GRU\nEstimate north/east mean wind", fillcolor="#dbeafe"];
+  ema_filter [label="EMA and spike gating\n3 s time constant", fillcolor="#dbeafe"];
+  pd_controller [label="Nominal PD controller"];
+  residual_policy [label="PPO residual policy\n23 observations", fillcolor="#dcfce7"];
+  action_filter [label="Residual scaling, smoothing\nand slew limiting", fillcolor="#dcfce7"];
+  action_sum [label="Nominal action + residual", shape=box, penwidth=2];
+  vehicle [label="Quadrotor dynamics\nIncluding actuator response"];
+  ambient_wind [label="Ambient wind and turbulence\nNot an online true-wind input"];
+  reference -> pd_controller;
+  state_signals -> pd_controller;
+  state_signals -> features;
+  command_features -> features;
+  features -> estimator;
+  estimator -> ema_filter;
+  ema_filter -> residual_policy [label="Two estimated wind components"];
+  state_signals -> residual_policy;
+  reference -> residual_policy [label="Compute tracking error"];
+  pd_controller -> residual_policy [label="Normalized baseline thrust"];
+  pd_controller -> action_sum [label="Nominal thrust and torques"];
+  residual_policy -> action_filter [label="Thrust and three-axis torque correction"];
+  action_filter -> action_sum;
+  action_filter -> residual_policy [label="Previously applied residual", constraint=false];
+  action_sum -> vehicle;
+  ambient_wind -> vehicle;
+  vehicle -> state_signals [constraint=false];
+}

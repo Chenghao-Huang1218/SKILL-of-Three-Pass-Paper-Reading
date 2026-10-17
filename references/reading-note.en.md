@@ -52,6 +52,15 @@ Complete only what your actual reading depth supports, using your own words. Att
 - Rewritten conclusion proportionate to the evidence:
 - External consistency: searched sources and results / not verified.
 
+## Method framework diagram: when applicable
+
+- Purpose, language, and scope:
+- Training versus inference/deployment:
+- Mermaid source or generated files:
+- Source-location table for modules and important edges:
+- Simplifications, inferences, and unreported details:
+- Whether image export and visual inspection were actually completed:
+
 ## Next step and recall
 
 - Decision: deepen / learn background / current reading goal met; reason:

@@ -4,6 +4,8 @@
 
 This is the English version of a curated example from an actual AI-assisted reading session. It demonstrates the three-pass workflow and evidence wording, rather than reproducing the chat verbatim. It is neither an experimental reproduction nor a comparison between skills. Translation does not constitute a new experiment or a new independent review of the cited literature.
 
+For a visual explanation, see the [training and deployment framework](wind-aware-rl-framework.en.md), with editable Mermaid, a deployment SVG, and source locations.
+
 ## 1. Reader prompt
 
 Obtain the paper PDF and attach it to an assistant with document-reading tools. Then send:
