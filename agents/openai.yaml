@@ -1,0 +1,4 @@
+interface:
+  display_name: "三遍阅读法"
+  short_description: "从速读到证据核查和批判性评价，生成可追溯的科研论文阅读笔记"
+  default_prompt: "请使用 $three-pass-paper-reading 阅读我提供的论文，先判断相关性，再按我的目标深入分析方法、证据与结论边界。"
