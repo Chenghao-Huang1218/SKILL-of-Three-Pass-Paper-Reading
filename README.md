@@ -1,4 +1,8 @@
-# 三遍阅读法 · Three-Pass Paper Reading
+# SKILL of Three-Pass Paper Reading
+
+**三遍阅读法：强调证据边界与统计解释的论文阅读 Skill**
+
+中文说明（当前页面） · [English](README.en.md) · [使用示例](examples/wind-aware-rl-reading.md) · [MIT License](LICENSE)
 
 一个强调**证据边界与统计解释**的科研论文阅读 Skill：帮助 AI 追踪论文主张的依据，分别判断结果是否可信、是否重要、是否适用于当前问题，并形成与证据强度匹配的结论。
 
@@ -18,9 +22,41 @@
 
 三遍阅读、五个 C、证据定位和结构化笔记也是其他论文阅读 Skill 使用的做法。本项目不声称首创这些方法，也尚未通过跨 Skill 对照实验验证效果优越性。
 
-## 快速开始
+## 安装
 
-将整个目录安装到支持本地 Skills 的助手中，目录名保留 `three-pass-paper-reading`。在 Codex 中，可放入 `$CODEX_HOME/skills`；未设置 `CODEX_HOME` 时通常为 `~/.codex/skills`。目录结构为：
+需要先安装 Git，并使用支持本地 Skills 的助手。下面的命令将公开仓库克隆到 Codex 的用户级技能目录，不需要 GitHub 令牌、API Key、Python 或 npm；读取论文所需的模型及工具由助手提供。
+
+项目名称为 **SKILL of Three-Pass Paper Reading**；GitHub 仓库名为 `SKILL-of-Three-Pass-Paper-Reading`。安装目录和调用标识仍为 `three-pass-paper-reading`。
+
+### Windows（PowerShell）
+
+打开 PowerShell，复制执行：
+
+```powershell
+$codexHomePath = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $HOME '.codex' }
+$skillRootPath = Join-Path $codexHomePath 'skills'
+New-Item -ItemType Directory -Path $skillRootPath -Force | Out-Null
+git clone https://github.com/Chenghao-Huang1218/SKILL-of-Three-Pass-Paper-Reading.git (Join-Path $skillRootPath 'three-pass-paper-reading')
+```
+
+### macOS / Linux（Bash 或 Zsh）
+
+打开终端，复制执行：
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+git clone https://github.com/Chenghao-Huang1218/SKILL-of-Three-Pass-Paper-Reading.git "${CODEX_HOME:-$HOME/.codex}/skills/three-pass-paper-reading"
+```
+
+如果目标目录已经存在，Git 会拒绝覆盖。请先确认它是否是你先前手动安装或修改过的版本，不要直接删除。通过 Git 克隆安装的版本，可以使用 `git -C <安装目录> pull --ff-only` 更新；手动复制安装的版本不适用这条更新命令。
+
+安装后新开一个 Codex 聊天，再显式调用 `$three-pass-paper-reading`。如果仍无法识别，检查实际技能目录中是否直接包含 `SKILL.md`，以及助手是否支持该技能目录。其他助手请使用其支持的 Skills 目录，不能假定 Codex 路径通用。
+
+### 不使用 Git
+
+在 [仓库页面](https://github.com/Chenghao-Huang1218/SKILL-of-Three-Pass-Paper-Reading) 选择 **Code → Download ZIP**。解压后，将项目文件夹改名为 `three-pass-paper-reading`，放入 Codex 用户级 `skills` 目录；不要额外嵌套一层项目文件夹。
+
+目录结构为（文档和许可证文件略）：
 
 ```text
 three-pass-paper-reading/
@@ -36,6 +72,8 @@ three-pass-paper-reading/
 
 本 Skill 不绑定特定检索产品，也不附带 PDF 解析器。助手需要具备读取论文全文及查看相关图表的能力。若无法访问全文，应明确限制，不能把摘要分析称为全文精读。
 
+## 使用
+
 安装并被助手发现后，可以这样调用：
 
 ```text
@@ -45,6 +83,8 @@ three-pass-paper-reading/
 ```
 
 也可以自然表达“请用三遍阅读法帮我读这篇论文”；具体是否自动匹配，取决于助手的技能发现机制。显式指定技能标识更明确。
+
+Skill 指令和现有完整示例以中文编写；需要英文输出时，在请求中明确写出 `Respond in English`。英文安装和功能说明见 [English README](README.en.md)。
 
 只需要筛选时：
 
