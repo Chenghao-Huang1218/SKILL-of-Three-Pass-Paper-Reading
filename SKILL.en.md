@@ -1,6 +1,6 @@
 ---
 name: three-pass-paper-reading
-description: Read research papers with the three-pass method: screen relevance, trace arguments and figures to evidence, then critically assess validity, importance, and applicability. Use for screening, close reading, method understanding, discussion preparation, and pre-reproduction appraisal, with traceable reading notes.
+description: "Read research papers with the three-pass method: screen relevance, trace arguments and figures to evidence, then critically assess validity, importance, and applicability. Use for screening, close reading, method understanding, discussion preparation, and pre-reproduction appraisal, with traceable reading notes."
 ---
 
 # Three-Pass Paper Reading
