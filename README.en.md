@@ -2,7 +2,7 @@
 
 **An evidence-focused research-paper reading skill with explicit statistical interpretation rules.**
 
-[中文](README.md) · English (this page) · [Worked example, in Chinese](examples/wind-aware-rl-reading.md) · [MIT License](LICENSE)
+[中文](README.md) · English (this page) · [English instructions](SKILL.en.md) · [中文指令](SKILL.md) · [Worked example](examples/wind-aware-rl-reading.en.md) · [MIT License](LICENSE)
 
 Read a paper at the depth your goal requires: establish the big picture, trace claims to evidence, and evaluate what the conclusions actually support. Assess **validity, importance, and applicability separately** rather than reducing a paper to a single score.
 
@@ -55,18 +55,22 @@ The skill files should be arranged as follows; README and license files are omit
 ```text
 three-pass-paper-reading/
 ├── SKILL.md
+├── SKILL.en.md
 ├── agents/
 │   └── openai.yaml
 ├── references/
 │   ├── reading-note.md
-│   └── source-notes.md
+│   ├── reading-note.en.md
+│   ├── source-notes.md
+│   └── source-notes.en.md
 └── examples/
-    └── wind-aware-rl-reading.md
+    ├── wind-aware-rl-reading.md
+    └── wind-aware-rl-reading.en.md
 ```
 
 ## Usage
 
-The skill instructions and the full worked example are currently written in Chinese. To request English output, explicitly include **Respond in English** in your prompt.
+English and Chinese instructions, templates, and full examples are included. `SKILL.md` remains the discovery entry and routes English-language tasks to [SKILL.en.md](SKILL.en.md). No second installation or file replacement is needed. Output follows the requested language, or otherwise the language of the request. You can explicitly include **Respond in English** when desired.
 
 Attach a paper PDF or provide an accessible full-text link, then send:
 
@@ -92,7 +96,7 @@ Natural-language requests can also work if your assistant automatically matches 
 
 The example uses Abdullah Al Tasim and Wei Sun's *Wind-Aware Reinforcement Learning Control of a Small Quadrotor Using Learned Onboard Wind Estimation in Simulated Atmospheric Turbulence*, arXiv:2607.01528v1 (2026).
 
-[Paper](https://arxiv.org/abs/2607.01528v1) · [PDF](https://arxiv.org/pdf/2607.01528v1) · [Full three-pass example, in Chinese](examples/wind-aware-rl-reading.md)
+[Paper](https://arxiv.org/abs/2607.01528v1) · [PDF](https://arxiv.org/pdf/2607.01528v1) · [Full English example](examples/wind-aware-rl-reading.en.md) · [中文示例](examples/wind-aware-rl-reading.md)
 
 Download or attach the paper and try:
 
@@ -128,7 +132,7 @@ These observations summarize the supplied paper and its worked reading, not a co
 | 2: Evidence | Follow the methods and argument | Method explanation, figure/table checks, claim–evidence mapping, revised summary |
 | 3: Appraisal | Challenge the conditions behind the conclusion | Alternative explanations, strengths and limitations, three-part assessment, calibrated conclusion |
 
-A reusable [reading-note template, in Chinese](references/reading-note.md) is included.
+A reusable [English reading-note template](references/reading-note.en.md) is included, alongside the [Chinese version](references/reading-note.md).
 
 ## Scope and limitations
 
@@ -140,7 +144,7 @@ The assistant needs full-text access and the ability to inspect relevant figures
 
 This skill was directly adapted from Benita Olivier's guide, *How to Read a Research Paper: A three-pass method for understanding and questioning research*. The guide attributes the three-pass method and Five Cs to S. Keshav's *How to read a paper* (2007, [DOI](https://doi.org/10.1145/1273445.1273458)).
 
-See [source notes, in Chinese](references/source-notes.md) for the distinction between source guidance, AI-workflow additions, and tightened statistical wording. Neither the guide PDF nor the research-paper PDF is redistributed. Their authors do not endorse this project merely because their work is discussed here.
+See the [English source notes](references/source-notes.en.md) or [Chinese source notes](references/source-notes.md) for the distinction between source guidance, AI-workflow additions, and tightened statistical wording. Neither the guide PDF nor the research-paper PDF is redistributed. Their authors do not endorse this project merely because their work is discussed here.
 
 ## License
 

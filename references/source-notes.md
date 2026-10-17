@@ -1,5 +1,7 @@
 # 方法来源与改编边界
 
+[English source notes](source-notes.en.md)
+
 ## 直接依据
 
 用户提供的 PDF：**How to Read a Research Paper: A three-pass method for understanding and questioning research**，署名 **Dr. Benita Olivier, Professor of Rehabilitation, Oxford Brookes University**，标识为 Consensus 指南。原件未在此包中重复分发；本 skill 无需原文件路径即可使用。
@@ -33,3 +35,7 @@
 对指南的通俗统计解释作了必要收紧：p 值不能解释为“结论错误概率”或“偶然造成的概率”；置信区间不能直接当作参数的后验概率；不显著不代表没有效应。因果判断改为核查设计、识别假设与执行，避免“观察性研究永远不能研究因果”或“随机实验必然可信”的绝对化表述。
 
 Consensus 在原指南中是可选检索辅助。本 skill 保留“回到原文核实、把单篇结果放入证据背景”的原则，不要求账号、付费产品或特定连接器。指南中的虚构案例不作为真实研究证据。
+
+## 语言版本
+
+`SKILL.md` 保留中文指令并作为自动发现入口，`SKILL.en.md` 为同一技能的英文指令参考。两版使用相同的阅读流程，分别链接对应语言的模板。英文文件是本项目指令、笔记和使用示例的翻译，不是所引作者文献的官方译本，也不代表作者背书。

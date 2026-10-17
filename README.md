@@ -2,7 +2,7 @@
 
 **三遍阅读法：强调证据边界与统计解释的论文阅读 Skill**
 
-中文说明（当前页面） · [English](README.en.md) · [使用示例](examples/wind-aware-rl-reading.md) · [MIT License](LICENSE)
+中文说明（当前页面） · [English](README.en.md) · [中文指令](SKILL.md) · [English instructions](SKILL.en.md) · [使用示例](examples/wind-aware-rl-reading.md) · [MIT License](LICENSE)
 
 一个强调**证据边界与统计解释**的科研论文阅读 Skill：帮助 AI 追踪论文主张的依据，分别判断结果是否可信、是否重要、是否适用于当前问题，并形成与证据强度匹配的结论。
 
@@ -61,13 +61,17 @@ git clone https://github.com/Chenghao-Huang1218/SKILL-of-Three-Pass-Paper-Readin
 ```text
 three-pass-paper-reading/
 ├── SKILL.md
+├── SKILL.en.md
 ├── agents/
 │   └── openai.yaml
 ├── references/
 │   ├── reading-note.md
-│   └── source-notes.md
+│   ├── reading-note.en.md
+│   ├── source-notes.md
+│   └── source-notes.en.md
 └── examples/
-    └── wind-aware-rl-reading.md
+    ├── wind-aware-rl-reading.md
+    └── wind-aware-rl-reading.en.md
 ```
 
 本 Skill 不绑定特定检索产品，也不附带 PDF 解析器。助手需要具备读取论文全文及查看相关图表的能力。若无法访问全文，应明确限制，不能把摘要分析称为全文精读。
@@ -84,7 +88,7 @@ three-pass-paper-reading/
 
 也可以自然表达“请用三遍阅读法帮我读这篇论文”；具体是否自动匹配，取决于助手的技能发现机制。显式指定技能标识更明确。
 
-Skill 指令和现有完整示例以中文编写；需要英文输出时，在请求中明确写出 `Respond in English`。英文安装和功能说明见 [English README](README.en.md)。
+中文与英文指令、模板和完整示例均已提供。`SKILL.md` 是自动发现入口，英文任务会读取 [SKILL.en.md](SKILL.en.md)，无需另装一个技能或替换文件。输出遵循用户指定语言，未指定时跟随请求语言；也可以明确写出 `Respond in English`。英文安装和功能说明见 [English README](README.en.md)。
 
 只需要筛选时：
 
@@ -97,7 +101,7 @@ Skill 指令和现有完整示例以中文编写；需要英文输出时，在�
 
 示例论文：Abdullah Al Tasim 与 Wei Sun，*Wind-Aware Reinforcement Learning Control of a Small Quadrotor Using Learned Onboard Wind Estimation in Simulated Atmospheric Turbulence*，arXiv:2607.01528v1（2026）。
 
-[论文页面](https://arxiv.org/abs/2607.01528v1) · [原文 PDF](https://arxiv.org/pdf/2607.01528v1) · **[完整三遍阅读示例](examples/wind-aware-rl-reading.md)**
+[论文页面](https://arxiv.org/abs/2607.01528v1) · [原文 PDF](https://arxiv.org/pdf/2607.01528v1) · **[中文完整示例](examples/wind-aware-rl-reading.md)** · **[English worked example](examples/wind-aware-rl-reading.en.md)**
 
 读者可自行获取 PDF，上传给助手后输入：
 
@@ -131,7 +135,7 @@ https://arxiv.org/abs/2607.01528v1
 | 第二遍 | 理解方法、追踪论证 | 方法解释、图表核查、主张—证据表、修订概要 |
 | 第三遍 | 检查结论成立的条件 | 替代解释、主要优点与局限、三维评价、结论改写 |
 
-需要长期积累笔记时，使用 [阅读笔记模板](references/reading-note.md)。
+需要长期积累笔记时，使用 [中文阅读笔记模板](references/reading-note.md) 或 [English reading-note template](references/reading-note.en.md)。
 
 ## 当前能力与边界
 
