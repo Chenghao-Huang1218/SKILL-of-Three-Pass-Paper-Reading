@@ -161,13 +161,11 @@ https://arxiv.org/abs/2607.01528v1
 
 这是由自然语言指令和参考模板组成的 Skill。它指导已有助手工作，不包含独立阅读模型或实验执行系统。
 
-它没有附带自动 PDF/HTML 报告渲染器，也不保证助手每次都能正确识别统计问题。阅读分析不等于运行代码、复现实验或完成系统综述；这些状态应分别说明。
 
 ## 方法来源
 
 本项目直接改编自 Benita Olivier 的 *How to Read a Research Paper: A three-pass method for understanding and questioning research* 指南。该指南将三遍阅读法和五个 C 归于 S. Keshav 的 *How to read a paper*（2007，[DOI](https://doi.org/10.1145/1273445.1273458)）。
 
-AI 阅读的操作规则、统计解释收紧及不同研究类型的检查项，详见 [来源与改编边界](references/source-notes.md)。本仓库不附带原指南 PDF，也不附带示例研究论文 PDF；示例是阅读分析，不是论文作者对本项目的背书。
 
 ## 许可证
 
